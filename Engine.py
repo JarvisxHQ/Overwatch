@@ -6,10 +6,10 @@ eel.init('web')
 def stockData(stockSymb):
     price = stck.getStockPrice(stockSymb)
     if price:
-        print(stockSymb, ": ", price)
+        #print(stockSymb, ": ", price)
         return round(price, 2), stockSymb
     else:
-        print("Invalid Stock Name")
+        #print("Invalid Stock Name")
         return -1, stockSymb
 
 eel.start('index.html', size=(1000,600))
