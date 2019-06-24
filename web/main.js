@@ -1,16 +1,21 @@
 function getStockData() {
-    var data = document.getElementById("data").value
+    var data = document.getElementById("stockSymb").value;
     //eel.stockData(data)(function(ret) {console.log(ret)})
-    eel.stockData(data)(display)
+    if(data == "Admin") {
+        console.log("Login");
+        window.open("profile.html","_self");
+    } else {
+        eel.stockData(data)(display);
+    }
 }
 
 function display(price) {
-    let infoLabel = document.getElementById("data")
-    console.log("Price: " + price)
+    let infoLabel = document.getElementById("stockSymb");
+    console.log("Price: " + price);
     if(price[0] == -1){
-        infoLabel.placeholder = price[1] + " (Invalid Sybml)" 
+        infoLabel.placeholder = price[1] + " (Invalid Sybml)"; 
     } else{
-        infoLabel.placeholder = price[1] + ": " + price[0].toString() 
+        infoLabel.placeholder = price[1] + ": " + price[0].toString(); 
     }
-    infoLabel.value = ''
+    infoLabel.value = '';
 }
